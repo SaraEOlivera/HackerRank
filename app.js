@@ -99,3 +99,36 @@ function diagonalDifference(arr) {
 matriz = [[1,2,3],[4,5,6],[9,8,9]];
 console.log(diagonalDifference(matriz));
 
+/*
+6 - Given an array of integers, calculate the ratios of its elements that are
+positive, negative, and zero. Print the decimal value of each fraction on a new line
+ with 6 places after the decimal.
+ */
+let items = [0, -67, -74, -38, -72, -53, 0, -13, -95, -91, -100, -59, 0, -10, -68, -71, -62, -21, 0, -42, -57, -16, -66, -23, 0, -80, -63, -68, -65, -71, 0, -71, -15, -32, -26, -8, 0, -6, -51, -87, -19, -71, 0, -93, -26, -35, -56, -89, 0, -21, -74, -39, -57, -8, 0, -69, -29, -24, -99, -53, 0, -65, -42, -72, -18, -4, 0, -73, -46, -63, -78, -87];
+console.log("cant: ", items.length)
+function plusMinus(arr) {
+    // Write your code here
+    let pos = 0;
+    let neg = 0;
+    let zeros = 0;
+    let total = arr.length;
+    for (let i = 0; i< total; i++){
+        if (arr[i] === 0) zeros++;
+        else if (arr[i] > 0) pos++;
+        else neg++;
+    }
+    let rNeg = neg / total;
+    rNeg = rNeg.toFixed(6);
+    let rPos = pos / total;
+    rPos = rPos.toFixed(6);
+    let rZero = zeros / total;  
+    rZero = rZero.toFixed(6);
+
+    console.log(rPos);
+    console.log(rNeg);
+    console.log(rZero);
+}
+
+console.log("plusMinus ", plusMinus(items));
+
+
