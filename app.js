@@ -76,8 +76,8 @@ unArray = [1000000001, 1000000002, 1000000003, 1000000004, 1000000005]
 console.log("aVeryBigSum", aVeryBigSum(unArray));
 
 /* 5 - Given a square matrix, calculate the absolute difference between the sums
-/  of its diagonals. For example, the square matrix arr is shown below:
- 1 2 3
+of its diagonals. For example, the square matrix arr is shown below:
+1 2 3
 4 5 6
 9 8 9  
 The left-to-right diagonal = 1+5+9 = 15
@@ -131,4 +131,27 @@ function plusMinus(arr) {
 
 console.log("plusMinus ", plusMinus(items));
 
+/*
+7 - This is a staircase of size n = 4 Its base and height are both equal to n. 
+It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+Write a program that prints a staircase of size n. Print a staircase as described above. 
+No value should be returned.
+Note: The last line is not preceded by spaces. All lines are right-aligned.
+*/
+function staircase(n) {
+    // Write your code here
+    let symbA = "#";
+    let symB = " ";
+    let row = 1;
+    while (row <= n) {
+        let linea = "";
+        let espacios =symB.repeat(n - row); 
+        let caracter = symbA.repeat(row);
+        row++;
+        linea += espacios + caracter
+        console.log(linea);
+        linea = "";
+    }
+}
+console.log("Staircase ", staircase(6));
 
