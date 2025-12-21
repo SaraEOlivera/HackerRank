@@ -177,4 +177,33 @@ function miniMaxSum(arr) {
 }
 console.log("miniMaxSum: ", miniMaxSum(elems));
 
-/* 8 -  */
+/* 8 - You are in charge of the cake for a child's birthday. It will have one candle 
+for each year of their total age. They will only be able to blow out the tallest of the
+ candles. Your task is to count how many candles are the tallest. Example:
+ candles = [4, 4, 1, 3]. 
+ The tallest candles are 4 units high. There are 2 candles with this height, so the 
+ function should return 2.
+ */
+let velas = [82, 49, 82, 82, 41, 82, 15, 63, 38, 25];
+
+function birthdayCakeCandles(candles) {
+    // Write your code here
+    let totalTall = 0;
+    let maxi = Math.max(...candles);
+    for(let i=0; i<candles.length; i++){
+        if(candles[i] === maxi){
+            totalTall++;
+        }
+    }
+    return totalTall;
+}
+
+console.log("Velas: ", birthdayCakeCandles(velas));
+
+/*
+Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
+- 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock. Example
+s = '12:01:00PM' returns '12:01:00'
+s = '12:01:00AM' returnos '00:01:00'
+ */
