@@ -2,11 +2,11 @@
 // Solved me First: Complete the function to compute the sum
 //  of 2 integers.
 
-function solvedMeFirst(a,b) {
-    return a+b;
+function solvedMeFirst(a, b) {
+    return a + b;
 }
 
-console.log("solvedMeFirst: ", solvedMeFirst(2,3));
+console.log("solvedMeFirst: ", solvedMeFirst(2, 3));
 
 //***************************************************** */
 
@@ -40,11 +40,11 @@ If a[i] < b[i], then Bob is awarded 1 point.
 If a[i] = b[i], then neither person receives a point.
 */
 
-function compareTheTriplets(a,b) {
+function compareTheTriplets(a, b) {
     let winAna = 0;
     let winBob = 0;
     for (let i = 0; i < a.length; i++) {
-        if (a[i] > b[i]) 
+        if (a[i] > b[i])
             winAna++;
         else if (a[i] < b[i])
             winBob++
@@ -71,7 +71,7 @@ function aVeryBigSum(ar) {
     return bigSum;
 }
 
-unArray = [1000000001, 1000000002, 1000000003, 1000000004, 1000000005]  
+unArray = [1000000001, 1000000002, 1000000003, 1000000004, 1000000005]
 
 console.log("aVeryBigSum", aVeryBigSum(unArray));
 
@@ -89,14 +89,14 @@ function diagonalDifference(arr) {
     // Write your code here
     let sumLR = 0;
     let sumRL = 0;
-    for(i = 0; i< arr.length; i++){
+    for (i = 0; i < arr.length; i++) {
         sumLR += arr[i][i];
-        sumRL += arr[i][(arr.length - 1)- i];
+        sumRL += arr[i][(arr.length - 1) - i];
     }
-    return Math.abs(sumLR - sumRL); 
+    return Math.abs(sumLR - sumRL);
 }
 
-matriz = [[1,2,3],[4,5,6],[9,8,9]];
+matriz = [[1, 2, 3], [4, 5, 6], [9, 8, 9]];
 console.log(diagonalDifference(matriz));
 
 /*
@@ -112,7 +112,7 @@ function plusMinus(arr) {
     let neg = 0;
     let zeros = 0;
     let total = arr.length;
-    for (let i = 0; i< total; i++){
+    for (let i = 0; i < total; i++) {
         if (arr[i] === 0) zeros++;
         else if (arr[i] > 0) pos++;
         else neg++;
@@ -121,7 +121,7 @@ function plusMinus(arr) {
     rNeg = rNeg.toFixed(6);
     let rPos = pos / total;
     rPos = rPos.toFixed(6);
-    let rZero = zeros / total;  
+    let rZero = zeros / total;
     rZero = rZero.toFixed(6);
 
     console.log(rPos);
@@ -145,7 +145,7 @@ function staircase(n) {
     let row = 1;
     while (row <= n) {
         let linea = "";
-        let espacios =symB.repeat(n - row); 
+        let espacios = symB.repeat(n - row);
         let caracter = symbA.repeat(row);
         row++;
         linea += espacios + caracter
@@ -161,19 +161,19 @@ console.log("Staircase ", staircase(6));
   values as a single line of two space-separated long integers.
  */
 
-let elems = [1,3,5,7,9];
+let elems = [1, 3, 5, 7, 9];
 function miniMaxSum(arr) {
     // Write your code here
     let sum = 0;
-    for(let i=0; i<arr.length; i++){
-        sum+= arr[i]
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i]
     }
     let numMin = Math.min(...arr);
     let numMax = Math.max(...arr);
-    let sumMax  = sum - numMin
-    let sumMin  = sum - numMax
+    let sumMax = sum - numMin
+    let sumMin = sum - numMax
 
-   console.log(sumMin, sumMax);
+    console.log(sumMin, sumMax);
 }
 console.log("miniMaxSum: ", miniMaxSum(elems));
 
@@ -190,8 +190,8 @@ function birthdayCakeCandles(candles) {
     // Write your code here
     let totalTall = 0;
     let maxi = Math.max(...candles);
-    for(let i=0; i<candles.length; i++){
-        if(candles[i] === maxi){
+    for (let i = 0; i < candles.length; i++) {
+        if (candles[i] === maxi) {
             totalTall++;
         }
     }
@@ -201,9 +201,91 @@ function birthdayCakeCandles(candles) {
 console.log("Velas: ", birthdayCakeCandles(velas));
 
 /*
-Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+9 - Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
 Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
 - 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock. Example
 s = '12:01:00PM' returns '12:01:00'
 s = '12:01:00AM' returnos '00:01:00'
+ * The function is expected to return a STRING.
+ * The function accepts STRING s as parameter.
  */
+//s.includes(doce, posicionDoce
+function timeConversion(s) {
+    // Write your code here
+    const am = "AM";
+    const pm = "PM"
+    if (s.includes(am)) {
+        s = s.replace("AM", "");
+        let parteHora = s.slice(0, 2); 
+
+        if (parteHora === "12") {
+            parteHora = parteHora.replace("12", "00");
+        }
+        s = s.slice(2, 8);
+        s = parteHora + s;
+    }
+    else if (s.includes(pm)) {
+        s = s.replace("PM", "");
+        let parteHora = s.slice(0, 2);
+        let convertirHora = parseInt(parteHora);
+        if (convertirHora !== 12) {
+            convertirHora += 12;
+        }
+        let union = convertirHora.toString();
+
+        s = s.slice(2, 8)
+        s = union + s;
+
+    }
+    return s;
+}
+
+let hora = "12:00:00AM";
+let hora23 = "01:41:00AM";
+let hora14 = "02:41:00AM";
+let hora16 = "06:05:45AM";
+let hora17 = "09:05:45AM";
+console.log(timeConversion(hora));
+// console.log("AM ", timeConversion(hora23));
+// console.log("AM ", timeConversion(hora14));
+// console.log("AM ", timeConversion(hora16));
+// console.log("AM ", timeConversion(hora17));
+// console.log("");
+
+let hora3 = "01:05:45PM";
+let hora4 = "02:05:45PM";
+let hora5 = "03:05:45PM";
+let hora6 = "04:05:45PM";
+let hora7 = "05:05:45PM";
+let hora8 = "06:05:45PM";
+let hora9 = "07:05:45PM";
+let hora10 = "08:05:45PM";
+let hora11 = "09:05:45PM";
+let hora12 = "10:05:45PM";
+let hora13 = "11:05:45PM";
+let hora2 = "12:05:45PM";
+
+// console.log("PM ", timeConversion(hora3));
+// console.log("PM ", timeConversion(hora4));
+// console.log("PM ", timeConversion(hora5));
+// console.log("PM ", timeConversion(hora6));
+// console.log("PM ", timeConversion(hora7));
+// console.log("PM ", timeConversion(hora8));
+// console.log("PM ", timeConversion(hora9));
+// console.log("PM ", timeConversion(hora10));
+// console.log("PM ", timeConversion(hora11));
+// console.log("PM ", timeConversion(hora12));
+// console.log("PM ", timeConversion(hora13));
+// console.log("PM ", timeConversion(hora2));
+
+
+
+
+
+
+
+
+
+
+
+
